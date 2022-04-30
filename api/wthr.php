@@ -1,6 +1,7 @@
 <?php
 $json = curl("http://wthrcdn.etouch.cn/weather_mini?city=" . $_GET["city"]);
 $rt = getSubstr($json, "\"forecast\":[", ",{");
+$rt = substr($rt,2,strlen($rt)-1);
 
 echo json_encode($rt);
 
