@@ -9,14 +9,10 @@ $devurl = $jsonB["artifacts"][0]["url"];
 
 echo json_encode(
     array(
-	"passed" => array(
-            "name" => $passedname,
-            "durl" => $passeddurl
-	),
-	"dev" => array(
-	    "name" => $devid,
-	    "durl" => $devdurl
-	)
+        "name" => $passedname,
+        "durl" => $passeddurl,
+	"devname" => $devid,
+	"devdurl" => $devdurl,
     )
 );
 
