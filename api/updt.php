@@ -5,7 +5,7 @@ $jsonB = json_decode(curl("https://api.github.com/repos/XiaMoHuaHuo-CN/CatSero/a
 $passedname = $jsonA[0]["name"];
 $passeddurl = $jsonA[0]["assets"][0]["browser_download_url"];
 $devid = $jsonB["artifacts"][0]["id"];
-$devurl = $jsonB["artifacts"][0]["url"];
+$devdurl = $jsonB["artifacts"][0]["url"];
 
 echo json_encode(
     array(
