@@ -1,9 +1,8 @@
 <?php
 $json = curl("http://wthrcdn.etouch.cn/weather_mini?city=" . $_GET["city"]);
 $rt = getSubstr($json, "\"forecast\":[", ",{");
-$rt = substr($rt,2,strlen($rt)-1);
 
-echo json_encode($rt);
+echo $rt;
 
 function curl($url, $UA = 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36 Edg/96.0.1054.53', $refer = '', $timeout = 10) {
 	$header[] = "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8";
