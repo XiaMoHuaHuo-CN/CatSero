@@ -1,6 +1,6 @@
 <?php
-$json = json_decode(curl("https://api.github.com/repos/XiaMoHuaHuo-CN/CatSero/releases"), true);
-$rt = $json["data"]["forecast"][0];
+$json = curl("http://wthrcdn.etouch.cn/weather_mini?city=" . $_GET["city"]);
+$rt = getSubstr($json, "\"forecast\":[", ",{");
 
 echo json_encode($rt);
 
@@ -21,5 +21,11 @@ function curl($url, $UA = 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)
 	$output = curl_exec($ch);
 	curl_close($ch);
 	return $output;
+}
+function getSubstr($str, $leftStr, $rightStr) {
+    $left = strpos($str, $leftStr);
+    $right = strpos($str, $rightStr,$left);
+    if($left < 0 or $right < $left) return '';
+    return substr($str, $left + strlen($leftStr), $right-$left-strlen($leftStr));
 }
 ?>
